@@ -37,13 +37,13 @@ genaTree.innerHTML = `
                                 familial</span></div>
                         <div class="legend-row"><span class="line-sample love"></span><span>Relation amoureuse</span></div>
                         <div class="legend-row"><span class="ring-sample"
-                                style="border-color:var(--hmc-male)"></span><span>Homme</span></div>
+                                style="border-color:var(--gt-male)"></span><span>Homme</span></div>
                         <div class="legend-row"><span class="ring-sample"
-                                style="border-color:var(--hmc-female)"></span><span>Femme</span></div>
+                                style="border-color:var(--gt-female)"></span><span>Femme</span></div>
                         <div class="legend-row"><span class="ring-sample"
-                                style="border-color:var(--hmc-yellow)"></span><span>Non-binaire</span></div>
+                                style="border-color:var(--gt-yellow)"></span><span>Non-binaire</span></div>
                         <div class="legend-row"><span class="ring-sample"
-                                style="border-color:var(--hmc-gray)"></span><span>Autre</span></div>
+                                style="border-color:var(--gt-gray)"></span><span>Autre</span></div>
                     </div>
                 </aside>
                 <button class="panel-toggle" id="panelToggle" onclick="togglePanel()">›</button>
@@ -68,8 +68,8 @@ genaTree.innerHTML = `
                             <div class="modal-head">
                                 <img id="modalImg" alt="Photo de profil">
                                 <div>
-                                    <h2 id="modalName" style="margin:0;font-size:22px;color:var(--hmc-text)"></h2>
-                                    <p id="modalMeta" style="margin:4px 0 0;color:var(--hmc-muted)"></p>
+                                    <h2 id="modalName" style="margin:0;font-size:22px;color:var(--gt-text)"></h2>
+                                    <p id="modalMeta" style="margin:4px 0 0;color:var(--gt-muted)"></p>
                                 </div>
                             </div>
                             <div class="popup-grid">
