@@ -1,9 +1,107 @@
-
+// Configuration
 const FAMILY_DATA_URL = 'data/family-data.json';
 const WORKER_URL = 'https://divine-moon-e24f.ptitleo2009.workers.dev/';
 const GUILD_ID = '1025887285461405817';
 const NEUTRAL_IMG = 'https://kiro701.github.io/BoucleRP/Image/Profil-Neutre.avif';
 
+// Front-end
+const genaTree = document.getElementById('genaTree');
+
+genaTree.innerHTML = `
+        <main class="family-page">
+            <section class="family-app" id="familyApp" aria-label="Arbre de famille de cœur">
+                <aside class="family-panel collapsed" id="familyPanel">
+                    <h2>Famille Hamilton</h2>
+                    <p class="subtitle">Arbre global avec relations familiales, amoureuses et
+                        séparations.</p>
+                    <input id="familySearch" class="family-search" placeholder="🔍 Rechercher une personne…"
+                        oninput="searchPeople()">
+    
+                    <div class="panel-section-title">Filtres</div>
+                    <label class="check-row"><input id="showLove" type="checkbox" checked onchange="renderTree()">Relations
+                        amoureuses</label>
+                    <label class="check-row"><input id="showFamily" type="checkbox" checked onchange="renderTree()">Liens
+                        familiaux</label>
+    
+                    <button class="family-btn full" onclick="clearSelection()">Désélectionner</button>
+                    <button class="family-btn full" onclick="resetView()">⟳ Réinitialiser</button>
+    
+                    <div class="family-stats">
+                        <div class="family-stat"><strong id="statPeople">0</strong><span>membres</span></div>
+                        <div class="family-stat"><strong id="statRelations">0</strong><span>relations</span></div>
+                    </div>
+    
+                    <div class="legend-card">
+                        <div class="panel-section-title" style="margin-top:0">Légende</div>
+                        <div class="legend-row"><span class="line-sample"></span><span>Lien
+                                familial</span></div>
+                        <div class="legend-row"><span class="line-sample love"></span><span>Relation amoureuse</span></div>
+                        <div class="legend-row"><span class="ring-sample"
+                                style="border-color:var(--hmc-male)"></span><span>Homme</span></div>
+                        <div class="legend-row"><span class="ring-sample"
+                                style="border-color:var(--hmc-female)"></span><span>Femme</span></div>
+                        <div class="legend-row"><span class="ring-sample"
+                                style="border-color:var(--hmc-yellow)"></span><span>Non-binaire</span></div>
+                        <div class="legend-row"><span class="ring-sample"
+                                style="border-color:var(--hmc-gray)"></span><span>Autre</span></div>
+                    </div>
+                </aside>
+                <button class="panel-toggle" id="panelToggle" onclick="togglePanel()">›</button>
+    
+                <section class="family-workspace">
+                    <div class="canvas-tools">
+                        <button type="button" onclick="zoomBy(1.15)">+</button>
+                        <button type="button" onclick="zoomBy(.85)">−</button>
+                        <button type="button" onclick="centerTree()">⌖</button>
+                        <button type="button" onclick="toggleFullscreen()">⛶</button>
+                        <button type="button" onclick="clearSelection()">✕</button>
+                    </div>
+    
+                    <div class="tree-stage" id="familyStage">
+                        <div class="tree" id="familyTree">
+                            <svg class="relations" id="relationsSvg"></svg>
+                        </div>
+                    </div>
+    
+                    <div class="modal" id="personModal" onclick="closeModal(event)">
+                        <div class="modal-card" onclick="event.stopPropagation()">
+                            <div class="modal-head">
+                                <img id="modalImg" alt="Photo de profil">
+                                <div>
+                                    <h2 id="modalName" style="margin:0;font-size:22px;color:var(--hmc-text)"></h2>
+                                    <p id="modalMeta" style="margin:4px 0 0;color:var(--hmc-muted)"></p>
+                                </div>
+                            </div>
+                            <div class="popup-grid">
+                                <div class="popup-box">
+                                    <h3>Profil</h3>
+                                    <div id="modalInfo" class="markdown-content"></div>
+                                </div>
+                                <div class="popup-box">
+                                    <h3>Relations</h3>
+                                    <div id="modalTags"></div>
+                                </div>
+                                <div class="popup-box">
+                                    <h3>Réseaux sociaux</h3>
+                                    <div id="modalSocials"></div>
+                                </div>
+                                <div class="popup-box">
+                                    <h3>Navigation</h3><button class="family-btn full" onclick="centerOnSelected()">Centrer
+                                        sur cette
+                                        personne</button>
+                                </div>
+                            </div>
+                            <button class="family-btn full" onclick="shareSelectedProfile()">🔗 Partager ce profil</button>
+                            <button class="family-btn full"
+                                onclick="document.getElementById('personModal').style.display='none'">Fermer</button>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>`;
+
+
+// Back-end
 let people = [];
 let families = [];
 let relations = [];
@@ -12,10 +110,10 @@ let selectedId = null;
 let zoom = 1, panX = 0, panY = 0, isDragging = false;
 let dragStart = { x: 0, y: 0 }, panStart = { x: 0, y: 0 };
 
+
 const tree = document.getElementById('familyTree');
 const svg = document.getElementById('relationsSvg');
 const stage = document.getElementById('familyStage');
-
 
 function getCurrentLang() {
     return localStorage.getItem('lang')
@@ -36,6 +134,7 @@ function t(key, fallback = '') {
 
     return fallback || key;
 }
+
 function shareSelectedProfile() {
     if (!selectedId) return;
 
@@ -46,25 +145,7 @@ function shareSelectedProfile() {
         alert('Lien du profil copié !');
     });
 }
-function applyFamilyTranslations() {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        const value = t(key, el.textContent);
-        if (value) el.textContent = value;
-    });
 
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        const value = t(key, el.getAttribute('placeholder') || '');
-        if (value) el.setAttribute('placeholder', value);
-    });
-
-    document.querySelectorAll('[data-i18n-title]').forEach(el => {
-        const key = el.getAttribute('data-i18n-title');
-        const value = t(key, el.getAttribute('title') || '');
-        if (value) el.setAttribute('title', value);
-    });
-}
 
 function applyTransform() { tree.style.transform = `translate(${panX}px, ${panY}px) scale(${zoom})`; }
 
@@ -641,7 +722,6 @@ function renderTree() {
 
     document.getElementById('statPeople').textContent = people.length;
     document.getElementById('statRelations').textContent = relations.filter(r => r.type !== 'divorce').length;
-    applyFamilyTranslations();
     if (selectedId && isPersonVisible(selectedId)) selectPerson(selectedId, false);
 }
 
@@ -878,5 +958,4 @@ async function loadFamilyData() {
         tree.innerHTML = `<p style="color:white;padding:40px">${t('family_data_load_error', 'Impossible de charger')} <strong>family-data.json</strong>. ${t('family_data_load_error_hint', 'Vérifie que le fichier est bien à la racine du site.')}</p><svg class="relations" id="relationsSvg"></svg>`;
     }
 }
-applyFamilyTranslations();
 loadFamilyData();
