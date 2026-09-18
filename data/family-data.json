@@ -1,0 +1,258 @@
+{
+  "people": [
+    {
+      "id": "p2",
+      "name": "Antoine Girard",
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/300?img=2",
+      "dates": "",
+      "role": "Co-fondateur (exemple)",
+      "bio": "Biographie d'exemple décrivant ce personnage et son lien avec un autre membre.",
+      "socials": {
+        "Tiktok": "https://www.tiktok.com/@antoine.girard",
+        "Discord": "https://discord.com/users/100000000000000002",
+        "Toyhouse": "https://toyhou.se/antoine.girard"
+      }
+    },
+    {
+      "id": "p1",
+      "name": "Julien Moreau",
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/300?img=1",
+      "discordId": "100000000000000001",
+      "dates": "",
+      "role": "Fondateur (exemple)",
+      "bio": "Membre fondateur d'exemple du groupe fictif.",
+      "socials": {
+        "Tiktok": "https://www.tiktok.com/@julien.moreau",
+        "Discord": "https://discord.com/users/100000000000000001"
+      }
+    },
+    {
+      "id": "p3",
+      "name": "Camille Dubois",
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/300?img=3",
+      "discordId": "100000000000000003",
+      "dates": "",
+      "role": "Rôle exemple A",
+      "bio": "Bonjour, je suis un personnage d'exemple.",
+      "socials": {
+        "Discord": "https://discord.com/users/100000000000000003"
+      }
+    },
+    {
+      "id": "p4",
+      "name": "Léa Fontaine",
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/300?img=4",
+      "discordId": "100000000000000004",
+      "dates": "",
+      "role": "",
+      "bio": "Texte de biographie d'exemple décrivant la personnalité du personnage.",
+      "socials": {}
+    },
+    {
+      "id": "p5",
+      "name": "Manon Rousseau",
+      "gender": "femme",
+      "dates": "",
+      "img": "https://i.pravatar.cc/300?img=5",
+      "role": "Co-fondatrice (exemple)",
+      "bio": "",
+      "socials": {
+        "Twitch": "https://www.twitch.tv/manon.rousseau",
+        "YouTube": "https://www.youtube.com/channel/EXEMPLE0000000005",
+        "Tiktok": "https://www.tiktok.com/@manon.rousseau"
+      }
+    },
+    {
+      "id": "p6",
+      "name": "Thomas Lambert",
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/300?img=6",
+      "dates": "",
+      "discordId": "100000000000000006",
+      "role": "",
+      "bio": "",
+      "socials": {}
+    },
+    {
+      "id": "p8",
+      "name": "Chloé Bernard",
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/300?img=8",
+      "dates": "",
+      "discordId": "100000000000000008",
+      "role": "Rôle exemple B",
+      "bio": "Texte de biographie d'exemple, décrivant le caractère et les préférences du personnage.",
+      "socials": {
+        "Discord": "https://discord.com/users/100000000000000008",
+        "Instagram": "https://www.instagram.com/chloe.bernard/",
+        "Tiktok 1": "https://www.tiktok.com/@chloe.bernard.a",
+        "Tiktok 2": "https://www.tiktok.com/@chloe.bernard.b",
+        "YouTube": "https://www.youtube.com/@chloe.bernard",
+        "Playstation": "https://psnprofiles.com/chloe.bernard"
+      }
+    },
+    {
+      "id": "p9",
+      "name": "Sarah Lefebvre",
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/300?img=9",
+      "dates": "",
+      "discordId": "100000000000000009",
+      "role": "",
+      "bio": "",
+      "socials": {}
+    },
+    {
+      "id": "p10",
+      "name": "Hugo Martin",
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/300?img=10",
+      "discordId": "100000000000000010",
+      "dates": "",
+      "role": "",
+      "bio": "Texte de biographie d'exemple mentionnant un lien de parenté fictif.",
+      "socials": {
+        "Discord": "https://discord.com/users/100000000000000010",
+        "Tiktok": "https://www.tiktok.com/@hugo.martin",
+        "Twitch": "https://www.twitch.tv/hugo.martin",
+        "X": "https://x.com/hugo_martin"
+      }
+    },
+    {
+      "id": "p11",
+      "name": "Emma Petit",
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/300?img=11",
+      "discordId": "100000000000000011",
+      "dates": "",
+      "role": "",
+      "bio": "",
+      "socials": {}
+    },
+    {
+      "id": "p12",
+      "name": "Julie Simon",
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/300?img=12",
+      "discordId": "100000000000000012",
+      "dates": "",
+      "role": "",
+      "bio": "",
+      "socials": {}
+    },
+    {
+      "id": "p15",
+      "name": "Marc Dupont",
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/300?img=15",
+      "discordId": "100000000000000015",
+      "dates": "",
+      "role": "Rôle exemple C",
+      "bio": "Texte de biographie d'exemple décrivant un pouvoir ou une caractéristique fictive.",
+      "socials": {
+        "Tiktok": "https://www.tiktok.com/@marc.dupont",
+        "Discord": "https://discord.com/users/100000000000000015"
+      }
+    },
+    {
+      "id": "p16",
+      "name": "Nathan Robert",
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/300?img=16",
+      "discordId": "100000000000000016",
+      "dates": "",
+      "role": "",
+      "bio": "",
+      "socials": {}
+    },
+    {
+      "id": "p17",
+      "name": "Lucas Michel",
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/300?img=17",
+      "discordId": "100000000000000017",
+      "dates": "",
+      "role": "Rôle exemple D",
+      "bio": "Texte de biographie d'exemple décrivant la personnalité et le rôle du personnage dans le groupe fictif.",
+      "socials": {
+        "Tiktok": "https://www.tiktok.com/@lucas.michel"
+      }
+    },
+    {
+      "id": "p18",
+      "name": "Inès Leroy",
+      "gender": "femme",
+      "img": "https://i.pravatar.cc/300?img=18",
+      "discordId": "100000000000000018",
+      "dates": "",
+      "role": "",
+      "bio": "",
+      "socials": {}
+    },
+    {
+      "id": "p19",
+      "name": "Enzo Garcia",
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/300?img=19",
+      "discordId": "100000000000000019",
+      "dates": "",
+      "role": "",
+      "bio": "",
+      "socials": {}
+    },
+    {
+      "id": "p20",
+      "name": "Maxime Roux",
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/300?img=20",
+      "discordId": "100000000000000020",
+      "dates": "",
+      "role": "",
+      "bio": "Texte de biographie d'exemple mentionnant des liens familiaux fictifs.",
+      "socials": {
+        "Twitch": "https://www.twitch.tv/maxime.roux"
+      }
+    },
+    {
+      "id": "p21",
+      "name": "Kevin Vincent",
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/300?img=21",
+      "discordId": "100000000000000021",
+      "dates": "",
+      "role": "",
+      "bio": "Texte de biographie d'exemple, style présentation personnelle fictive.",
+      "socials": {
+        "Tiktok": "https://www.tiktok.com/@kevin.vincent",
+        "Instagram": "https://www.instagram.com/kevin.vincent"
+      }
+    },
+    {
+      "id": "p22",
+      "name": "Alexandre Fournier",
+      "gender": "homme",
+      "img": "https://i.pravatar.cc/300?img=22",
+      "discordId": "100000000000000022",
+      "dates": "",
+      "role": "Rôle exemple E",
+      "bio": "Texte de biographie d'exemple décrivant un personnage fictif au style particulier.",
+      "socials": []
+    }
+  ],
+  "families": [
+    { "parents": ["p6", "p9"], "children": ["p1", "p8"] },
+    { "parents": ["p1", "p2"], "children": ["p3", "p11", "p12", "p18", "p19", "p4"] },
+    { "parents": ["p1"], "children": ["p5", "p10"] },
+    { "parents": ["p15"], "children": ["p9", "p16", "p17", "p20"] },
+    { "parents": ["p21"], "children": ["p2"] }
+  ],
+  "relations": [
+    { "type": "love", "a": "p1", "b": "p2", "label": "Relation amoureuse" },
+    { "type": "love", "a": "p3", "b": "p22", "label": "Relation amoureuse" },
+    { "type": "love", "a": "p6", "b": "p9", "label": "Relation amoureuse arrangée" }
+  ]
+}

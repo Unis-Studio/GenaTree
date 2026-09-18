@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMC | Arbre généalogique</title>
+    <link rel="stylesheet" href="css/family-tree.css">
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <main class="family-page">
+        <section class="family-app" id="familyApp" aria-label="Arbre de famille de cœur">
+            <aside class="family-panel collapsed" id="familyPanel">
+                <h2 data-i18n="family_title">Famille Hamilton</h2>
+                <p class="subtitle" data-i18n="family_subtitle">Arbre global avec relations familiales, amoureuses et
+                    séparations.</p>
+                <input id="familySearch" class="family-search" placeholder="🔍 Rechercher une personne…"
+                    data-i18n="family_search_placeholder" oninput="searchPeople()">
+
+                <div class="panel-section-title">Filtres</div>
+                <label class="check-row"><input id="showLove" type="checkbox" checked onchange="renderTree()"
+                        data-i18n="family_filter_love">Relations amoureuses</label>
+                <label class="check-row"><input id="showFamily" type="checkbox" checked onchange="renderTree()"
+                        data-i18n="family_filter_family">Liens familiaux</label>
+
+                <button class="family-btn full" onclick="clearSelection()"
+                    data-i18n="family_clear_selection">Désélectionner</button>
+                <button class="family-btn full" onclick="resetView()" data-i18n="family_reset_view">⟳
+                    Réinitialiser</button>
+
+                <div class="family-stats">
+                    <div class="family-stat"><strong id="statPeople">0</strong><span
+                            data-i18n="family_stat_people">membres</span></div>
+                    <div class="family-stat"><strong id="statRelations">0</strong><span
+                            data-i18n="family_stat_relations">relations</span></div>
+                </div>
+
+                <div class="legend-card">
+                    <div class="panel-section-title" style="margin-top:0" data-i18n="family_legend">Légende</div>
+                    <div class="legend-row"><span class="line-sample"></span><span data-i18n="family_legend_family">Lien
+                            familial</span></div>
+                    <div class="legend-row"><span class="line-sample love"></span><span
+                            data-i18n="family_legend_love">Relation amoureuse</span></div>
+                    <div class="legend-row"><span class="ring-sample" style="border-color:var(--hmc-male)"></span><span
+                            data-i18n="family_legend_male">Homme</span></div>
+                    <div class="legend-row"><span class="ring-sample"
+                            style="border-color:var(--hmc-female)"></span><span
+                            data-i18n="family_legend_female">Femme</span></div>
+                    <div class="legend-row"><span class="ring-sample"
+                            style="border-color:var(--hmc-yellow)"></span><span
+                            data-i18n="family_legend_non_binary">Non-binaire</span></div>
+                    <div class="legend-row"><span class="ring-sample" style="border-color:var(--hmc-gray)"></span><span
+                            data-i18n="family_legend_other">Autre</span></div>
+                </div>
+            </aside>
+            <button class="panel-toggle" id="panelToggle" onclick="togglePanel()">›</button>
+
+            <section class="family-workspace">
+                <div class="canvas-tools">
+                    <button type="button" onclick="zoomBy(1.15)">+</button>
+                    <button type="button" onclick="zoomBy(.85)">−</button>
+                    <button type="button" onclick="centerTree()">⌖</button>
+                    <button type="button" onclick="toggleFullscreen()">⛶</button>
+                    <button type="button" onclick="clearSelection()">✕</button>
+                </div>
+
+                <div class="tree-stage" id="familyStage">
+                    <div class="tree" id="familyTree">
+                        <svg class="relations" id="relationsSvg"></svg>
+                    </div>
+                </div>
+
+                <div class="modal" id="personModal" onclick="closeModal(event)">
+                    <div class="modal-card" onclick="event.stopPropagation()">
+                        <div class="modal-head">
+                            <img id="modalImg" alt="Photo de profil">
+                            <div>
+                                <h2 id="modalName" style="margin:0;font-size:22px;color:var(--hmc-text)"></h2>
+                                <p id="modalMeta" style="margin:4px 0 0;color:var(--hmc-muted)"></p>
+                            </div>
+                        </div>
+                        <div class="popup-grid">
+                            <div class="popup-box">
+                                <h3 data-i18n="family_modal_profile">Profil</h3>
+                                <div id="modalInfo" class="markdown-content"></div>
+                            </div>
+                            <div class="popup-box">
+                                <h3 data-i18n="family_modal_relations">Relations</h3>
+                                <div id="modalTags"></div>
+                            </div>
+                            <div class="popup-box">
+                                <h3 data-i18n="family_modal_socials">Réseaux sociaux</h3>
+                                <div id="modalSocials"></div>
+                            </div>
+                            <div class="popup-box">
+                                <h3 data-i18n="family_modal_navigation">Navigation</h3><button class="family-btn full"
+                                    onclick="centerOnSelected()" data-i18n="family_center_on_person">Centrer sur cette
+                                    personne</button>
+                            </div>
+                        </div>
+                        <button class="family-btn full" onclick="shareSelectedProfile()">🔗 Partager ce profil</button>
+                        <button class="family-btn full"
+                            onclick="document.getElementById('personModal').style.display='none'"
+                            data-i18n="family_close_modal">Fermer</button>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="js/family-tree.js"></script>
+
+</body>
+
+</html>
